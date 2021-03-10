@@ -1,20 +1,9 @@
 class ChatroomController < ApplicationController
+  before_action :require_user
 
-  def index 
+  def index
+    @message = Message.new
     @messages = Message.all
   end 
 
-  def show 
-    @message = Message.find(params[:id])
-  end
-
-  def create 
-    @message = Message.new(message_params)
-  end
-
-  private
-  
-  def message_params
-    params.require(:message).permit(:body)
-  end
 end
