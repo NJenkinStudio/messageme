@@ -7,21 +7,25 @@
   <div class="twelve wide column">
     <div class="ui fluid purple card chatbox">
       <div class="content">
+      <% @messages.each do |message| %>
         <div class="ui feed">
           <div class="event">
             <div class="label">
-              <img src="/images/avatar/small/jenny.jpg">
+            <i class="circular purple studiovinari icon"></i>
+              <%# <img src="/images/avatar/small/jenny.jpg"> %>
             </div>
             <div class="content">
               <div class="date">
-                3 days ago
+                <%= time_ago_in_words(message.created_at) %>
               </div>
               <div class="summary">
-                <em>Xreyei:</em> to your <a>Wave Readers</a> circle.
+                <em><%= message.user.username %>:</em>
+                <%= simple_format(message.body) %>
               </div>
             </div>
           </div>
         </div>
+      <% end %>
       </div>
       <div class="extra content">
         <form class="ui reply form">
@@ -35,6 +39,7 @@
       </div>
     </div>
   </div>
+  
 
   <div class="four wide column">
     <div class="ui fluid purple card chatbox">
