@@ -14,7 +14,6 @@
       <div class="extra content">
         <%= form_with(model: @message, class: "ui reply form", 
                               url: message_path,
-                              method: 'post',
                               remote: true) do |f| %>
           <div class="field">
             <div class="ui fluid icon input">
@@ -26,7 +25,9 @@
       </div>
     </div>
   </div>
+  <div id="results">
   
+  </div>
 
   <div class="four wide column">
     <div class="ui fluid purple card chatbox">
